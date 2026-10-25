@@ -67,7 +67,8 @@ ul,ol{list-style:none;margin:0;padding:0}
 }
 
 /* strip */
-.strip{overflow:hidden;background:var(--accent);color:var(--accent-ink);padding:14px 0;transform:rotate(-1.2deg);margin:8px -10px 0}
+.strip-wrap{overflow:hidden;padding:12px 0 6px}
+.strip{overflow:hidden;background:var(--accent);color:var(--accent-ink);padding:14px 0;transform:rotate(-1.2deg) scaleX(1.04)}
 .strip-track{display:flex;gap:36px;width:max-content;animation:slide 26s linear infinite;font-family:var(--f-display);text-transform:uppercase;font-size:20px;white-space:nowrap}
 .strip-track span::after{content:"✦";margin-left:36px;opacity:.7}
 @keyframes slide{to{transform:translateX(-50%)}}
