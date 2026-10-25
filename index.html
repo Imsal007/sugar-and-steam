@@ -11,7 +11,7 @@
 <link rel="preload" as="image" href="img/subject-m.webp" type="image/webp" media="(max-width:760px)">
 <link rel="preload" as="image" href="img/subject.webp" type="image/webp" media="(min-width:761px)">
 <link rel="preload" as="font" href="fonts/fraunces-latin-700-normal.woff2" type="font/woff2" crossorigin>
-<style>@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}:root{--bg:#1b0f0c;--bg2:#281813;--ink:#fbeee6;--muted:#b9a095;--accent:#ff8fb1;--accent-ink:#2a0f18;--glow:#ffb3c7;--aspect:0.858;--h1m:13.5;--w-display:700;--case:none;--shadow:rgba(0,0,0,.55);--f-display:"Fraunces",Impact,sans-serif;--f-body:"Manrope",system-ui,sans-serif}</style>
+<style>@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Manrope";src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}:root{--bg:#1b0f0c;--bg2:#281813;--ink:#fbeee6;--muted:#b9a095;--accent:#ff8fb1;--accent-ink:#2a0f18;--glow:#ffb3c7;--aspect:0.784;--h1m:13.5;--w-display:700;--case:none;--shadow:rgba(0,0,0,.55);--f-display:"Fraunces",Impact,sans-serif;--f-body:"Manrope",system-ui,sans-serif}</style>
 <link rel="stylesheet" href="_shared/demo.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
     <div class="layer plate" aria-hidden="true"><img src="img/plate.webp" alt=""></div>
     <div class="layer light" aria-hidden="true"></div>
     <div class="layer word" aria-hidden="true"><span>Sugar</span></div>
-    <div class="layer subject"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="A stack of fudgy chocolate brownies with warm chocolate sauce poured over" fetchpriority="high"></picture></div>
+    <div class="layer subject"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="A slice of layered sponge cake with cream filling and fresh raspberries" fetchpriority="high"></picture></div>
     <canvas class="layer fx" aria-hidden="true"></canvas>
     <div class="hero-copy">
       <div class="hero-top">
@@ -35,7 +35,7 @@
         <h1 class="display"><span class="hl"><span>Sweet, hot,</span></span><span class="hl"><span>fresh.</span></span></h1>
       </div>
       <div class="hero-bottom">
-        <p class="sub">Warm brownies, glazed doughnuts, flat whites and thick shakes. Order ahead and skip the queue.</p>
+        <p class="sub">Layered cakes, warm brownies, flat whites and thick shakes. Order ahead and skip the queue.</p>
         <p class="beat2 display" aria-hidden="true">Order ahead.<br>Skip the queue.</p>
         <div class="cta-row">
           <button class="btn btn-main" data-open>Order on WhatsApp</button>
@@ -47,6 +47,16 @@
 </section>
 
 <div class="strip" aria-hidden="true"><div class="strip-track"><span>Baked daily</span><span>No app fees</span><span>Pay on collection</span><span>Fresh coffee</span><span>Open late</span><span>Baked daily</span><span>No app fees</span><span>Pay on collection</span><span>Fresh coffee</span><span>Open late</span></div></div>
+
+<section class="bd" id="inside" data-mode="stack" data-n="4" aria-labelledby="bd-h">
+  <div class="bd-pin">
+    <h2 id="bd-h" class="display h2 bd-title">Layer by layer</h2>
+    <ul class="sr"><li>Fresh raspberries</li><li>Pistachio cream sponge</li><li>Raspberry and cream filling</li><li>Vanilla sponge base</li></ul>
+    <div class="bd-stage" style="aspect-ratio:0.784"><div class="pc" data-i="0" style="--y0:0;--y1:0.4;--yc:0.200"><div class="pc-img"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="" loading="lazy"></picture></div><p class="bd-lab r">Fresh raspberries</p></div><div class="pc" data-i="1" style="--y0:0.4;--y1:0.57;--yc:0.485"><div class="pc-img"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="" loading="lazy"></picture></div><p class="bd-lab l">Pistachio cream sponge</p></div><div class="pc" data-i="2" style="--y0:0.57;--y1:0.7;--yc:0.635"><div class="pc-img"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="" loading="lazy"></picture></div><p class="bd-lab r">Raspberry and cream filling</p></div><div class="pc" data-i="3" style="--y0:0.7;--y1:1;--yc:0.850"><div class="pc-img"><picture><source media="(max-width:760px)" srcset="img/subject-m.webp"><img src="img/subject.webp" alt="" loading="lazy"></picture></div><p class="bd-lab l">Vanilla sponge base</p></div></div>
+    
+    <div class="bd-out"><p class="display">Baked this morning, sliced to order.</p><button class="btn btn-main" data-add="cake">Add the Raspberry Cream Cake</button></div>
+  </div>
+</section>
 
 <section class="steps wrap" aria-labelledby="steps-h">
   <h2 id="steps-h" class="display h2">How it <span class="acc">works</span></h2>

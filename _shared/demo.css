@@ -42,6 +42,8 @@ ul,ol{list-style:none;margin:0;padding:0}
 .word span{font-family:var(--f-display);font-weight:var(--w-display,400);text-transform:var(--case,uppercase);line-height:.8;white-space:nowrap;font-size:30vw;color:color-mix(in srgb,var(--ink) 9%,transparent);letter-spacing:.01em}
 .subject{display:grid;place-items:center;padding-top:14svh}
 .subject picture{display:block;width:min(104vw,calc(44svh * var(--aspect,1.2)));max-width:none}
+.subject picture{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
 .subject img{width:100%;height:auto;filter:drop-shadow(0 34px 28px var(--shadow,rgba(0,0,0,.55)))}
 .fx{width:100%;height:100%}
 .hero-pin::after{content:"";position:absolute;inset:auto 0 0 0;height:46%;z-index:1;pointer-events:none;background:linear-gradient(transparent,color-mix(in srgb,var(--bg) 88%,transparent))}
@@ -69,6 +71,46 @@ ul,ol{list-style:none;margin:0;padding:0}
 .strip-track{display:flex;gap:36px;width:max-content;animation:slide 26s linear infinite;font-family:var(--f-display);text-transform:uppercase;font-size:20px;white-space:nowrap}
 .strip-track span::after{content:"✦";margin-left:36px;opacity:.7}
 @keyframes slide{to{transform:translateX(-50%)}}
+
+
+/* breakdown: the dish comes apart layer by layer while pinned (the peak of the page) */
+.bd{position:relative;height:280svh;margin-top:30px}
+.bd-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center}
+.bd-title{position:absolute;top:calc(82px + env(safe-area-inset-top));left:20px;right:20px;margin:0;font-size:clamp(38px,11vw,96px)}
+.bd-stage{position:relative;width:min(74vw,calc(34svh * var(--aspect,1.2)));margin-top:6svh}
+.pc{position:absolute;inset:0;will-change:transform}
+.pc-img{position:absolute;inset:0;filter:drop-shadow(0 16px 16px var(--shadow,rgba(0,0,0,.55)))}
+.pc picture,.pc img{display:block;width:100%;height:100%}
+.bd[data-mode="stack"] .pc img{clip-path:inset(calc(var(--y0) * 100%) 0 calc((1 - var(--y1)) * 100%) 0)}
+.bd-lab{position:absolute;left:50%;top:calc(var(--y0) * 100%);translate:-50% calc(-100% - 6px);margin:0;white-space:nowrap;font-weight:800;font-size:14px;letter-spacing:.02em;padding:6px 12px;border-radius:999px;background:color-mix(in srgb,var(--bg) 78%,transparent);border:1px solid color-mix(in srgb,var(--ink) 16%,transparent);opacity:0}
+.pc[data-i="0"] .bd-lab{top:0}
+.bd-caps{position:absolute;left:20px;right:20px;bottom:calc(150px + env(safe-area-inset-bottom));display:grid;justify-items:center}
+.cap{grid-area:1/1;margin:0;font-family:var(--f-display);font-weight:var(--w-display,400);text-transform:var(--case,uppercase);font-size:clamp(24px,6.6vw,44px);text-align:center;opacity:0}
+.fl{position:absolute;left:50%;top:50%;width:24%;height:auto;opacity:0;filter:drop-shadow(0 12px 12px rgba(0,0,0,.45));will-change:transform}
+.bd-spices{position:absolute;left:20px;right:20px;bottom:calc(150px + env(safe-area-inset-bottom));margin:0;text-align:center;color:var(--muted);font-size:15px;opacity:0}
+.bd-out{position:absolute;left:20px;right:20px;bottom:calc(36px + env(safe-area-inset-bottom));display:grid;justify-items:center;gap:14px;text-align:center;opacity:0;visibility:hidden}
+.bd-out p{margin:0;font-size:clamp(26px,7vw,52px)}
+@media (min-width:761px){
+  .bd{height:320svh}
+  .bd-title{left:auto;right:auto;width:100%;max-width:1180px;padding:0 20px;font-size:clamp(44px,6vw,96px)}
+  .bd-stage{width:min(32vw,calc(38svh * var(--aspect,1.2)));margin-top:9svh}
+  .bd-lab{left:auto;translate:0 -50%;top:calc(var(--yc) * 100%);font-size:15px}
+  .bd-lab.r{left:calc(100% + 28px)}
+  .bd-lab.l{right:calc(100% + 28px)}
+  .pc[data-i="0"] .bd-lab{top:calc(var(--yc) * 100%)}
+  .bd-lab::before{content:"";position:absolute;top:50%;width:22px;height:1px;background:color-mix(in srgb,var(--ink) 40%,transparent)}
+  .bd-lab.r::before{right:100%}
+  .bd-lab.l::before{left:100%}
+  .bd-caps{left:auto;right:max(20px,calc((100vw - 1180px) / 2));bottom:auto;top:50%;translate:0 -50%;width:26vw;justify-items:start}
+  .bd-caps .cap{text-align:left}
+  .bd[data-mode="radial"] .bd-stage{translate:-11vw 0}
+  .bd-spices{bottom:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bd{height:auto;padding:120px 0 60px}
+  .bd-pin{position:relative;height:auto;min-height:100svh}
+  .bd-lab,.cap:first-child,.bd-spices,.bd-out,.fl{opacity:1;visibility:visible}
+}
 
 /* steps */
 .steps{padding-top:84px;padding-bottom:30px}

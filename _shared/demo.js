@@ -134,6 +134,76 @@
     }
   }
 
+  /* ---------- breakdown: the dish comes apart, holds, then rebuilds into the order button ---------- */
+  var bd = $(".bd");
+  if (bd) {
+    var mode = bd.dataset.mode, pcs = $$(".pc", bd), n = pcs.length, mid = (n - 1) / 2;
+    var labs = $$(".bd-lab", bd), caps = $$(".cap", bd), fls = $$(".fl", bd), stage = $(".bd-stage", bd);
+    var cx = parseFloat(bd.dataset.cx || 0.5), cy = parseFloat(bd.dataset.cy || 0.5);
+    if (mode === "radial") {
+      pcs.forEach(function (pc, i) {
+        var a0 = -Math.PI / 2 + i * 2 * Math.PI / n, a1 = a0 + 2 * Math.PI / n, pts = [cx * 100 + "% " + cy * 100 + "%"];
+        for (var k = 0; k <= 6; k++) {
+          var a = a0 + (a1 - a0) * k / 6;
+          pts.push((cx * 100 + Math.cos(a) * 150) + "% " + (cy * 100 + Math.sin(a) * 150) + "%");
+        }
+        $("img", pc).style.clipPath = "polygon(" + pts.join(",") + ")";
+        pc.dataset.ang = (a0 + a1) / 2;
+      });
+    }
+    var spread = function () { return window.innerWidth < 761 ? Math.min(window.innerHeight * 0.068, 60) : Math.min(window.innerHeight * 0.075, 66); };
+    var sw = function () { return stage.offsetWidth; };
+    var ring = function (i, axis, k) {
+      var a = -Math.PI / 2 + (i + 0.5) * 2 * Math.PI / fls.length, r = sw() * (window.innerWidth < 761 ? 0.56 : 0.66) * (k || 1);
+      return axis === "x" ? Math.cos(a) * r : Math.sin(a) * r * 0.92;
+    };
+    var outX = function (pc, k) { return Math.cos(+pc.dataset.ang) * sw() * k; };
+    var outY = function (pc, k) { return Math.sin(+pc.dataset.ang) * sw() * k; };
+
+    if (!calm && window.gsap && window.ScrollTrigger) {
+      gsap.set(fls, { xPercent: -50, yPercent: -50 });
+      var t2 = gsap.timeline({ defaults: { ease: "power2.inOut" }, scrollTrigger: { trigger: bd, start: "top top", end: "bottom bottom", scrub: 0.7, invalidateOnRefresh: true } });
+      t2.from(stage, { scale: 0.86, opacity: 0.3, duration: 0.1, ease: "none" }, 0);
+      if (mode === "stack") {
+        pcs.forEach(function (pc, i) {
+          t2.to(pc, { y: function () { return (i - mid) * spread(); }, x: function () { return (i % 2 ? -1 : 1) * sw() * 0.03; }, rotation: (i % 2 ? -1 : 1) * 2.5, duration: 0.3 }, 0.1 + i * 0.025);
+        });
+        t2.to(labs, { opacity: 1, duration: 0.07, stagger: 0.035 }, 0.3);
+        fls.forEach(function (f, i) {
+          t2.fromTo(f, { x: function () { return ring(i, "x", 2.6); }, y: function () { return ring(i, "y", 2.6); }, rotation: -60 + i * 30, opacity: 0 },
+            { x: function () { return ring(i, "x"); }, y: function () { return ring(i, "y"); }, rotation: i * 18, opacity: 1, duration: 0.3, ease: "power3.out" }, 0.12 + i * 0.03);
+        });
+        if (fls.length) t2.to(".bd-spices", { opacity: 1, duration: 0.07 }, 0.44).to(".bd-spices", { opacity: 0, duration: 0.05 }, 0.72);
+        t2.to(labs, { opacity: 0, duration: 0.05 }, 0.72)
+          .to(pcs, { y: 0, x: 0, rotation: 0, duration: 0.15 }, 0.74);
+        if (fls.length) t2.to(fls, { x: function (i) { return ring(i, "x", 0.9); }, y: function (i) { return ring(i, "y", 0.9); }, scale: 0.8, duration: 0.15 }, 0.74);
+      } else {
+        pcs.forEach(function (pc) { t2.to(pc, { x: function () { return outX(pc, 0.035); }, y: function () { return outY(pc, 0.035); }, duration: 0.1 }, 0.1); });
+        var step = 0.54 / n;
+        pcs.forEach(function (pc, i) {
+          var at = 0.2 + i * step;
+          t2.to(pc, { x: function () { return outX(pc, 0.17); }, y: function () { return outY(pc, 0.17); }, scale: 1.06, duration: step * 0.5 }, at)
+            .to(pc, { x: function () { return outX(pc, 0.035); }, y: function () { return outY(pc, 0.035); }, scale: 1, duration: step * 0.5 }, at + step * 0.5)
+            .to(caps[i], { opacity: 1, duration: step * 0.3 }, at)
+            .to(caps[i], { opacity: 0, duration: step * 0.3 }, at + step * 0.7);
+        });
+        t2.to(pcs, { x: 0, y: 0, duration: 0.1 }, 0.78);
+      }
+      t2.fromTo(".bd-out", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.86)
+        .to({}, { duration: 0.01 }, 0.99);
+    } else {
+      /* reduced motion: a still, exploded view with every label showing */
+      var place = function () {
+        pcs.forEach(function (pc, i) {
+          pc.style.transform = mode === "stack" ? "translateY(" + (i - mid) * spread() + "px)" : "translate(" + outX(pc, 0.05) + "px," + outY(pc, 0.05) + "px)";
+        });
+        fls.forEach(function (f, i) { f.style.transform = "translate(calc(-50% + " + ring(i, "x") + "px), calc(-50% + " + ring(i, "y") + "px))"; });
+      };
+      place();
+      window.addEventListener("resize", place);
+    }
+  }
+
   /* anchors and the order drawer cooperate with smooth scroll */
   document.addEventListener("click", function (ev) {
     var a = ev.target.closest('a[href^="#"]');

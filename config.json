@@ -15,13 +15,13 @@
       "Sweet, hot,",
       "fresh."
     ],
-    "sub": "Warm brownies, glazed doughnuts, flat whites and thick shakes. Order ahead and skip the queue.",
+    "sub": "Layered cakes, warm brownies, flat whites and thick shakes. Order ahead and skip the queue.",
     "word": "Sugar",
     "beat2": [
       "Order ahead.",
       "Skip the queue."
     ],
-    "subject_alt": "A stack of fudgy chocolate brownies with warm chocolate sauce poured over",
+    "subject_alt": "A slice of layered sponge cake with cream filling and fresh raspberries",
     "h1": 13.5
   },
   "strip": [
@@ -211,5 +211,33 @@
       "weight": 700,
       "file": "manrope-latin-700-normal.woff2"
     }
-  ]
+  ],
+  "breakdown": {
+    "title": "Layer by layer",
+    "mode": "stack",
+    "item": "cake",
+    "outro": "Baked this morning, sliced to order.",
+    "pieces": [
+      [
+        0,
+        0.4,
+        "Fresh raspberries"
+      ],
+      [
+        0.4,
+        0.57,
+        "Pistachio cream sponge"
+      ],
+      [
+        0.57,
+        0.7,
+        "Raspberry and cream filling"
+      ],
+      [
+        0.7,
+        1,
+        "Vanilla sponge base"
+      ]
+    ]
+  }
 }
