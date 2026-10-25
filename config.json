@@ -1,0 +1,215 @@
+{
+  "slug": "sugar-and-steam",
+  "name": "Sugar & Steam",
+  "mark": [
+    "Sugar",
+    "& Steam"
+  ],
+  "cuisine": "Desserts, coffee and waffles",
+  "area": "Ilford, Essex IG1",
+  "title": "Sugar & Steam | Desserts, coffee and waffles in Ilford, order ahead",
+  "description": "Warm brownies, glazed doughnuts, flat whites and thick shakes. Build your order and send it on WhatsApp. Pay on collection, no app fees.",
+  "hero": {
+    "eyebrow": "Desserts, coffee and waffles · Ilford",
+    "lines": [
+      "Sweet, hot,",
+      "fresh."
+    ],
+    "sub": "Warm brownies, glazed doughnuts, flat whites and thick shakes. Order ahead and skip the queue.",
+    "word": "Sugar",
+    "beat2": [
+      "Order ahead.",
+      "Skip the queue."
+    ],
+    "subject_alt": "A stack of fudgy chocolate brownies with warm chocolate sauce poured over",
+    "h1": 13.5
+  },
+  "strip": [
+    "Baked daily",
+    "No app fees",
+    "Pay on collection",
+    "Fresh coffee",
+    "Open late"
+  ],
+  "steps": [
+    {
+      "t": "Pick your treats",
+      "d": "Tap to add. Mix a coffee with a dessert, or go full dessert."
+    },
+    {
+      "t": "Send it on WhatsApp",
+      "d": "One tap and the order lands straight with the counter."
+    },
+    {
+      "t": "Collect warm",
+      "d": "Walk in, pick up the bag, pay at the counter."
+    }
+  ],
+  "feature": {
+    "img": "feature",
+    "title": "The Warm Brownie",
+    "text": "Dark chocolate, soft in the middle and crisp at the edge, finished with warm chocolate sauce. Best eaten within ten minutes.",
+    "item": "brownie"
+  },
+  "menu": [
+    {
+      "id": "sweet",
+      "name": "Desserts",
+      "items": [
+        {
+          "id": "brownie",
+          "name": "Warm Chocolate Brownie",
+          "price": 4.5,
+          "desc": "Fudgy, dark, warm chocolate sauce.",
+          "tag": "Best seller"
+        },
+        {
+          "id": "donut",
+          "name": "Glazed Doughnut",
+          "price": 3.2,
+          "desc": "Soft, glazed, sprinkles.",
+          "tag": "Popular"
+        },
+        {
+          "id": "cake",
+          "name": "Raspberry Cream Cake",
+          "price": 5.5,
+          "desc": "Light sponge, cream, fresh raspberry.",
+          "tag": ""
+        },
+        {
+          "id": "waffle",
+          "name": "Berry Waffle",
+          "price": 8.0,
+          "desc": "Warm waffle, cream, strawberries, syrup.",
+          "tag": ""
+        },
+        {
+          "id": "cupcake",
+          "name": "Strawberry Cupcake",
+          "price": 3.5,
+          "desc": "Vanilla sponge, strawberry frosting.",
+          "tag": ""
+        }
+      ]
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "items": [
+        {
+          "id": "flat",
+          "name": "Flat White",
+          "price": 3.4,
+          "desc": "Double shot, silky milk.",
+          "tag": ""
+        },
+        {
+          "id": "latte",
+          "name": "Latte",
+          "price": 3.6,
+          "desc": "Smooth and milky.",
+          "tag": ""
+        },
+        {
+          "id": "cap",
+          "name": "Cappuccino",
+          "price": 3.5,
+          "desc": "Rich foam, double shot.",
+          "tag": ""
+        },
+        {
+          "id": "hot",
+          "name": "Hot Chocolate",
+          "price": 3.8,
+          "desc": "Thick, real chocolate, cream.",
+          "tag": "Popular"
+        }
+      ]
+    },
+    {
+      "id": "shakes",
+      "name": "Shakes",
+      "items": [
+        {
+          "id": "shake",
+          "name": "Biscoff Milkshake",
+          "price": 5.5,
+          "desc": "Thick, cold, crushed biscuit.",
+          "tag": ""
+        },
+        {
+          "id": "oreo",
+          "name": "Cookies and Cream Shake",
+          "price": 5.5,
+          "desc": "Vanilla ice cream, crushed cookies.",
+          "tag": ""
+        },
+        {
+          "id": "iced",
+          "name": "Iced Latte",
+          "price": 4.0,
+          "desc": "Over ice, shot of your choice.",
+          "tag": ""
+        }
+      ]
+    }
+  ],
+  "visit": {
+    "lines": [
+      "Ilford, Essex IG1"
+    ],
+    "hours": [
+      [
+        "Mon to Thu",
+        "9am to 10pm"
+      ],
+      [
+        "Fri and Sat",
+        "9am to midnight"
+      ],
+      [
+        "Sunday",
+        "10am to 9pm"
+      ]
+    ],
+    "note": "No alcohol served. Allergies? Tell us when you order and we will talk you through it."
+  },
+  "whatsapp": "447508407866",
+  "phone": "020 0000 0000",
+  "theme": {
+    "bg": "#1b0f0c",
+    "bg2": "#281813",
+    "ink": "#fbeee6",
+    "muted": "#b9a095",
+    "accent": "#ff8fb1",
+    "accent_ink": "#2a0f18",
+    "glow": "#ffb3c7",
+    "display": "Fraunces",
+    "body": "Manrope",
+    "case": "none",
+    "wdisplay": 700
+  },
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "weight": 700,
+      "file": "fraunces-latin-700-normal.woff2"
+    },
+    {
+      "family": "Manrope",
+      "weight": 400,
+      "file": "manrope-latin-400-normal.woff2"
+    },
+    {
+      "family": "Manrope",
+      "weight": 500,
+      "file": "manrope-latin-500-normal.woff2"
+    },
+    {
+      "family": "Manrope",
+      "weight": 700,
+      "file": "manrope-latin-700-normal.woff2"
+    }
+  ]
+}
