@@ -160,6 +160,19 @@
     var outX = function (pc, k) { return Math.cos(+pc.dataset.ang) * sw() * k; };
     var outY = function (pc, k) { return Math.sin(+pc.dataset.ang) * sw() * k; };
 
+    /* on phones, captions and the spice line sit just under the dish, wherever the dish lands */
+    var below = $$(".bd-caps, .bd-spices", bd);
+    var placeBelow = function () {
+      below.forEach(function (el) {
+        if (window.innerWidth > 760) { el.style.top = ""; el.style.bottom = ""; return; }
+        var extra = mode === "radial" ? sw() * 0.14 + 18 : spread() * (n - 1) / 2 + 26;
+        el.style.top = stage.offsetTop + stage.offsetHeight + extra + "px";
+        el.style.bottom = "auto";
+      });
+    };
+    placeBelow();
+    window.addEventListener("resize", placeBelow);
+
     if (!calm && window.gsap && window.ScrollTrigger) {
       gsap.set(fls, { xPercent: -50, yPercent: -50 });
       var t2 = gsap.timeline({ defaults: { ease: "power2.inOut" }, scrollTrigger: { trigger: bd, start: "top top", end: "bottom bottom", scrub: 0.7, invalidateOnRefresh: true } });
